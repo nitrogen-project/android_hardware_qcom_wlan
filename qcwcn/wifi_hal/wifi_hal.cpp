@@ -770,7 +770,7 @@ static int internal_valid_message_handler(nl_msg *msg, void *arg)
         /* Restrict printing GSCAN_FULL_RESULT which is causing lot
            of logs in bug report */
         if (subcmd != QCA_NL80211_VENDOR_SUBCMD_GSCAN_FULL_SCAN_RESULT) {
-            ALOGI("event received %s, vendor_id = 0x%0x, subcmd = 0x%0x",
+            ALOGV("event received %s, vendor_id = 0x%0x, subcmd = 0x%0x",
                   event.get_cmdString(), vendor_id, subcmd);
         }
     } else {
@@ -805,7 +805,7 @@ static int internal_valid_message_handler(nl_msg *msg, void *arg)
 
 #ifdef QC_HAL_DEBUG
     if (!dispatched) {
-        ALOGI("event ignored!!");
+        ALOGV("event ignored!!");
     }
 #endif
 
@@ -854,7 +854,7 @@ public:
         int i;
 
         if (!tb[CTRL_ATTR_MCAST_GROUPS]) {
-            ALOGI("No multicast groups found");
+            ALOGV("No multicast groups found");
             return NL_SKIP;
         } else {
             // ALOGI("Multicast groups attr size = %d",
